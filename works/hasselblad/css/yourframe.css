@@ -1,0 +1,69 @@
+/* ============================================================
+   Your Frame — 여정의 종착(문의). dark luxury (base.css 토큰 상속)
+   ============================================================ */
+.yourframe {
+  position: relative;
+  padding: clamp(6rem, 16vh, 12rem) clamp(1.2rem, 6vw, 6rem);
+  background: linear-gradient(180deg, var(--ink) 0%, var(--graphite) 100%);
+  border-top: 1px solid var(--line);
+}
+.yourframe__inner { max-width: 860px; margin: 0 auto; }
+.yourframe__eyebrow {
+  font-family: var(--script); color: var(--accent);
+  font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1;
+}
+.yourframe__title {
+  font-family: var(--serif); font-weight: 700;
+  font-size: clamp(2.4rem, 7vw, 5.4rem); line-height: 1.02; margin: 0.1em 0 0.5em;
+}
+.yourframe__title em { font-style: italic; color: var(--accent); }
+.yourframe__lead {
+  color: var(--muted); font-size: clamp(1rem, 1.6vw, 1.2rem); line-height: 1.7;
+  margin-bottom: 2.6rem;
+}
+.yourframe__demo { display: block; font-size: 0.8rem; opacity: 0.6; margin-top: 0.3rem; }
+
+/* ---------- 폼 ---------- */
+.yourframe__form {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem 2rem;
+}
+.yourframe__field { display: flex; flex-direction: column; gap: 0.55rem; }
+.yourframe__field--full { grid-column: 1 / -1; }
+.yourframe__field label {
+  font-family: var(--sans); font-size: 0.78rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--muted);
+}
+.yourframe__field input,
+.yourframe__field select,
+.yourframe__field textarea {
+  background: transparent; border: none; border-bottom: 1px solid var(--line);
+  color: var(--paper); font-family: var(--sans); font-size: 1.05rem;
+  padding: 0.7rem 0.1rem; transition: border-color 0.3s;
+  border-radius: 0;
+}
+.yourframe__field textarea { resize: vertical; min-height: 3rem; }
+.yourframe__field select option { color: #111; }
+.yourframe__field input:focus,
+.yourframe__field select:focus,
+.yourframe__field textarea:focus {
+  outline: none; border-bottom-color: var(--accent);
+}
+.yourframe__submit {
+  grid-column: 1 / -1; justify-self: start; margin-top: 0.6rem;
+  font-family: var(--sans); letter-spacing: 0.14em; text-transform: uppercase;
+  font-size: 0.9rem; color: var(--ink); background: var(--paper);
+  border: none; cursor: pointer; padding: 1.05em 2.4em; border-radius: 999px;
+  transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), background 0.3s, opacity 0.3s;
+}
+.yourframe__submit:hover:not(:disabled) { transform: translateY(-3px); background: var(--accent); }
+.yourframe__submit:disabled { opacity: 0.5; cursor: default; }
+.yourframe__status {
+  grid-column: 1 / -1; font-family: var(--sans); font-size: 0.95rem; min-height: 1.4em;
+  margin: 0.4rem 0 0;
+}
+.yourframe__status[data-state="error"] { color: #e0857a; }
+.yourframe__status[data-state="ok"] { color: var(--accent); }
+
+@media (max-width: 640px) {
+  .yourframe__form { grid-template-columns: 1fr; }
+}

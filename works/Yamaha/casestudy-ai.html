@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yamaha 리디자인 — AI 협업 케이스 스터디 · 허강범</title>
+  <meta name="description" content="기존 Yamaha 리디자인을 Claude Code와 협업해 여정·인터랙션·코드 품질까지 한 단계 더 끌어올린 과정. 원본 → v1 → AI 심화 v2 비교." />
+  <link rel="icon" href="data:," />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/casestudy-ai.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+</head>
+<body class="cs">
+  <a class="skip" href="#cs-main">본문으로 건너뛰기</a>
+
+  <header class="cs-bar">
+    <a class="cs-bar__back" href="../../index.html">← 포트폴리오</a>
+    <span class="cs-bar__brand">YAMAHA · AI CASE STUDY</span>
+    <a class="cs-bar__live" href="index.html">라이브 v2 →</a>
+  </header>
+
+  <main id="cs-main">
+    <section class="cs-hero">
+      <p class="cs-hero__eyebrow" data-reveal>UX Case Study — Human × AI</p>
+      <h1 class="cs-hero__title" data-reveal>Make<br /><em>Waves.</em></h1>
+      <p class="cs-hero__sub" data-reveal>기존 Yamaha 리디자인을 <b>Claude Code와 협업</b>해 여정·인터랙션·코드 품질까지
+        한 단계 더 끌어올린 과정. AI가 대신 만든 것이 아니라, 사람이 주도하고 AI와 함께 발전시킨 기록.</p>
+      <dl class="cs-hero__meta" data-reveal>
+        <div><dt>Role</dt><dd>기획 · 디자인 · 프론트엔드</dd></div>
+        <div><dt>With</dt><dd>Claude Code (AI 페어)</dd></div>
+        <div><dt>Stack</dt><dd>GSAP · Three.js · View Transitions · Lenis</dd></div>
+        <div><dt>Year</dt><dd>2026</dd></div>
+      </dl>
+      <p class="cs-hero__scroll" aria-hidden="true">SCROLL</p>
+    </section>
+
+    <section class="cs-block">
+      <div class="cs-block__head" data-reveal><span class="cs-num">00</span><h2>출발점 — 원본의 문제</h2></div>
+      <div class="cs-split">
+        <figure class="cs-shot" data-reveal>
+          <img src="img/case/ycs_clone_hero.png" width="1440" height="900" loading="lazy" alt="원본 클론 Yamaha 히어로" />
+          <figcaption>원본 클론 (AOS · jQuery)</figcaption>
+        </figure>
+        <div class="cs-copy" data-reveal>
+          <p>원본은 감성적인 비주얼보다 <em>정보 전달에 치우친 레이아웃</em>이 중심이었고,
+            브랜드 아이덴티티를 충분히 전하지 못했습니다. 제품 문단은 복붙됐고, 링크는 죽어 있었습니다.</p>
+          <ul class="cs-list">
+            <li>'소리 브랜드'라는 정체성이 구조로 드러나지 않음</li>
+            <li>전환 경로(다음 행동)의 부재 — 죽은 CTA</li>
+            <li>감성적 몰입을 만드는 인터랙션 부재</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-block">
+      <div class="cs-block__head" data-reveal><span class="cs-num">01</span><h2>1차 리디자인 (v1) — 그리고 남은 것</h2></div>
+      <div class="cs-split cs-split--rev">
+        <figure class="cs-shot" data-reveal>
+          <img src="img/case/ycs_v1_instruments.png" width="1440" height="900" loading="lazy" alt="v1 Instruments — 상세로 가는 길 없음" />
+          <figcaption>v1 Instruments — 설명뿐, '더 깊이'가 없음</figcaption>
+        </figure>
+        <div class="cs-copy" data-reveal>
+          <p>1차 리디자인은 <b>3D 크롬 사운드 링</b>과 4막 서사(Resonance·Instruments·Voices·Legacy)로
+            '소리 브랜드' 정체성을 크게 끌어올렸습니다.</p>
+          <p>그러나 <em>여정은 막다른 골목</em>이었습니다. 악기를 '더 깊이' 볼 수 없었고, 종착지가 없었으며,
+            사운드 링은 탭이 숨겨져도 계속 렌더되고 카운트업 숫자는 스크린리더에 중간값으로 읽혔습니다.</p>
+          <p class="cs-note">→ 여기서부터가 <b>AI 협업으로 발전시킬 지점</b>이었습니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-block cs-block--decisions">
+      <div class="cs-block__head" data-reveal>
+        <span class="cs-num">02</span><h2>AI 협업 — 결정의 여정</h2>
+        <p class="cs-block__lead">각 개선은 <b>문제 발견 → AI 제안 → 검토·선택 → 실측 검증</b>의 루프로.
+          AI는 대안을 제시했고, 방향의 선택과 판단은 사람이 했습니다.</p>
+      </div>
+
+      <div class="cs-theme" data-reveal>
+        <h3 class="cs-theme__title">여정 <span>Journey</span></h3>
+        <div class="cs-cards">
+          <article class="cs-card" data-reveal>
+            <span class="cs-card__id">Y-D3</span><h4>악기 상세 딥다이브</h4>
+            <p>Instruments가 '설명'으로 끝나던 막다른 골목. → 대표 1종 Piano 상세를 신설하고,
+              카드 이미지 → 상세 히어로를 <b>View Transitions</b>로 모핑.</p>
+          </article>
+          <article class="cs-card" data-reveal>
+            <span class="cs-card__id">Y-D4</span><h4>Make a Wave 종착</h4>
+            <p>순환으로 끝나던 여정을 '문의'로 닫음. 클라이언트 검증 + 성공 상태.
+              ruler·드로어·상세 CTA에서 연결. "데모 — 실제 전송되지 않음" 정직하게 명시.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="cs-theme" data-reveal>
+        <h3 class="cs-theme__title">연출 <span>Craft</span></h3>
+        <div class="cs-cards">
+          <article class="cs-card" data-reveal>
+            <span class="cs-card__id">Y-D5</span><h4>사운드 링 맥동</h4>
+            <p>시그니처인 사운드 링을 '울림'에 반응시킴. 스크롤 속도와 클릭(현을 튕기듯)에
+              링이 <b>맥동(pulse)</b>하며 매 프레임 감쇠. 소리가 사용자에게 반응하는 감각.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="cs-theme" data-reveal>
+        <h3 class="cs-theme__title">코드 품질 <span>Engineering</span></h3>
+        <div class="cs-cards">
+          <article class="cs-card" data-reveal>
+            <span class="cs-card__id">Y-D2</span><h4>링 정지 + 카운트업 SR</h4>
+            <p>링 렌더가 탭이 숨겨져도 상시 실행 → <code>document.hidden</code> 시 정지.
+              카운트업은 <code>aria-label</code>=최종값으로 스크린리더가 중간값을 읽지 않게.</p>
+          </article>
+          <article class="cs-card" data-reveal>
+            <span class="cs-card__id">Y-D6</span><h4>모바일 링 가독성</h4>
+            <p>모바일에서 반투명 링이 히어로 본문 대비를 낮춤. → 재질 opacity 0.6→0.42로
+              더 은은하게, 본문 가독성을 확보하면서 시그니처는 유지.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-block">
+      <div class="cs-block__head" data-reveal><span class="cs-num">03</span><h2>Before ↔ After</h2>
+        <p class="cs-block__lead">핸들을 드래그해 원본과 AI 리디자인을 비교해 보세요.</p></div>
+
+      <div class="ba" id="ba" data-reveal>
+        <img class="ba__img" src="img/case/ycs_v2_hero.png" width="1440" height="900" alt="AI 리디자인 v2 히어로" />
+        <div class="ba__clip" id="baClip"><img class="ba__img" src="img/case/ycs_clone_hero.png" width="1440" height="900" alt="원본 클론 히어로" /></div>
+        <div class="ba__handle" id="baHandle" role="slider" tabindex="0" aria-label="Before/After 비교 슬라이더" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+          <span class="ba__line"></span><span class="ba__grip">⇔</span>
+        </div>
+        <span class="ba__tag ba__tag--before">원본 클론</span>
+        <span class="ba__tag ba__tag--after">AI 리디자인 v2</span>
+      </div>
+
+      <div class="cs-newpair">
+        <figure class="cs-shot" data-reveal>
+          <span class="cs-shot__badge">NEW</span>
+          <img src="img/case/ycs_v2_piano.png" width="1440" height="900" loading="lazy" alt="v2 Piano 상세 페이지" />
+          <figcaption>악기 상세 딥다이브 — v1엔 없던 '탐험'</figcaption>
+        </figure>
+        <figure class="cs-shot" data-reveal>
+          <span class="cs-shot__badge">NEW</span>
+          <img src="img/case/ycs_v2_makewave.png" width="1440" height="900" loading="lazy" alt="v2 Make a Wave 문의 종착" />
+          <figcaption>Make a Wave — 여정을 닫는 정직한 종착</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="cs-block cs-block--results">
+      <div class="cs-block__head" data-reveal><span class="cs-num">04</span><h2>결과 (실측)</h2></div>
+      <div class="cs-metrics">
+        <div class="cs-metric" data-reveal><strong>0 → 1</strong><span>악기 상세 딥다이브 (Piano)</span></div>
+        <div class="cs-metric" data-reveal><strong>없음 → 1</strong><span>여정 종착 (Make a Wave)</span></div>
+        <div class="cs-metric" data-reveal><strong>상시 → 정지</strong><span>탭 숨김 시 링 렌더</span></div>
+        <div class="cs-metric" data-reveal><strong>0</strong><span>콘솔 오류 (1440 / 390)</span></div>
+      </div>
+      <ul class="cs-tech" data-reveal>
+        <li>GSAP · ScrollTrigger</li><li>Three.js MatCap 사운드 링</li><li>View Transitions API</li>
+        <li>Lenis 스무스 스크롤</li><li>카운트업 aria-label</li><li>reduced-motion 폴백</li>
+      </ul>
+    </section>
+
+    <section class="cs-block cs-block--reflect">
+      <div class="cs-reflect" data-reveal>
+        <p class="cs-reflect__quote">“AI가 대신 만든 것이 아니라, 내가 주도하고 AI와 협업해
+          더 높은 완성도로 발전시켰다.”</p>
+        <p class="cs-reflect__body">문제 정의와 방향의 판단은 사람이, 대안의 폭과 구현의 속도는 AI가.
+          그 협업의 의사결정을 <b>결정 로그(Y-D1–Y-D6)</b>로 남겨, 결과물뿐 아니라 '어떻게 발전했는가'까지 보이도록 했습니다.</p>
+        <div class="cs-cta">
+          <a class="cs-cta__btn cs-cta__btn--primary" href="index.html">라이브 v2 보기 →</a>
+          <a class="cs-cta__btn" href="instrument-piano.html">Piano 상세 보기</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="cs-foot"><span>© Yamaha Corporation · Redesign & Case Study — 허강범 / Heo Gangbeom</span></footer>
+
+  <script src="js/casestudy-ai.js" defer></script>
+</body>
+</html>

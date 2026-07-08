@@ -1,0 +1,66 @@
+/* ============================================================
+   위너프 제품 상세 — 고요의 심해 (base.css 토큰 상속)
+   ============================================================ */
+.product { background: var(--abyss); color: var(--foam); }
+.product .mono { font-family: var(--mono); }
+
+/* ---------- 상단 바 ---------- */
+.pbar {
+  position: fixed; inset: 0 0 auto 0; z-index: 40;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.3rem var(--pad);
+  background: linear-gradient(180deg, rgba(4,19,30,0.92), transparent);
+  backdrop-filter: blur(4px);
+}
+.pbar a, .pbar__brand { font-family: var(--sans); font-size: 0.82rem; letter-spacing: 0.08em; }
+.pbar a { text-transform: uppercase; transition: color 0.3s; }
+.pbar a:hover { color: var(--cyan); }
+.pbar__brand { letter-spacing: 0.04em; font-weight: 300; }
+.pbar__brand b { font-weight: 600; color: var(--cyan); }
+
+/* ---------- 히어로 ---------- */
+.phero { position: relative; min-height: 100svh; display: flex; align-items: flex-end; overflow: hidden; }
+.phero__media { position: absolute; inset: 0; }
+.phero__media img { width: 100%; height: 100%; object-fit: cover; }
+.phero__veil { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(4,19,30,0.55) 0%, rgba(4,19,30,0.2) 40%, rgba(4,19,30,0.92) 100%); }
+.phero__copy { position: relative; z-index: 2; padding: 0 var(--pad) clamp(3rem, 8vh, 7rem); }
+.phero__no { color: var(--cyan); font-size: 0.9rem; letter-spacing: 0.1em; }
+.phero__title { font-size: clamp(3.6rem, 13vw, 11rem); font-weight: 600; line-height: 0.98; margin: 0.15em 0 0.1em; letter-spacing: -0.02em; }
+.phero__en { font-family: var(--mono); color: var(--foam); opacity: 0.7; font-size: clamp(0.9rem, 1.6vw, 1.2rem); letter-spacing: 0.04em; }
+
+/* ---------- 서사 ---------- */
+.pnarr { max-width: 900px; margin: clamp(5rem, 12vh, 10rem) auto; padding: 0 var(--pad); }
+.pnarr__lead { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 500; line-height: 1.3; margin-bottom: 0.9em; }
+.pnarr__body { color: var(--mute); font-size: clamp(1rem, 1.5vw, 1.18rem); line-height: 1.95; max-width: 62ch; }
+.pnarr__body::first-line { color: var(--foam); }
+
+/* ---------- 스펙 ---------- */
+.pspec { max-width: 1080px; margin: 0 auto clamp(5rem, 12vh, 10rem); padding: 0 var(--pad); }
+.pspec__title { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 500; border-bottom: 1px solid var(--line-d); padding-bottom: 0.5em; }
+.pspec__title .mono { color: var(--cyan); font-size: 0.6em; letter-spacing: 0.1em; margin-right: 0.8em; }
+.pspec__row { display: grid; grid-template-columns: 180px 1fr; gap: 1.5rem; padding: 1.4rem 0; border-bottom: 1px solid var(--line-d); }
+.pspec__row dt { font-family: var(--mono); color: var(--cyan); font-size: 0.85rem; letter-spacing: 0.05em; padding-top: 0.3em; }
+.pspec__row dd { font-size: clamp(1rem, 1.6vw, 1.22rem); line-height: 1.6; }
+.med-note { margin-top: 2.5rem; padding: 1.1rem 1.3rem; border-left: 2px solid var(--vital); background: rgba(242,178,74,0.06); color: var(--mute); font-size: 0.9rem; line-height: 1.6; }
+
+/* ---------- CTA ---------- */
+.pcta { text-align: center; padding: clamp(5rem, 14vh, 11rem) var(--pad); border-top: 1px solid var(--line-d); }
+.pcta__eyebrow .mono { color: var(--cyan); letter-spacing: 0.16em; text-transform: uppercase; font-size: 0.85rem; }
+.pcta__title { font-size: clamp(2rem, 5vw, 3.6rem); font-weight: 500; line-height: 1.2; margin: 0.5em 0 1em; }
+.pcta__title em { color: var(--cyan); font-style: normal; }
+.pcta__btn { display: inline-block; font-family: var(--sans); font-size: 0.9rem; letter-spacing: 0.08em; color: var(--abyss); background: var(--cyan); padding: 1.1em 2.5em; border-radius: 999px; font-weight: 500; transition: transform 0.4s var(--ease), background 0.3s; }
+.pcta__btn:hover { transform: translateY(-3px); background: var(--light); }
+
+/* ---------- 푸터 ---------- */
+.pfoot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding: 2.5rem var(--pad); border-top: 1px solid var(--line-d); font-family: var(--mono); color: var(--mute); font-size: 0.8rem; }
+.pfoot a { color: var(--foam); border-bottom: 1px solid var(--line-d); }
+.pfoot a:hover { color: var(--cyan); }
+
+/* ---------- reveal ---------- */
+[data-reveal] { opacity: 0; transform: translateY(26px); }
+
+@media (max-width: 720px) {
+  .pspec__row { grid-template-columns: 1fr; gap: 0.4rem; }
+  .pbar__brand { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { [data-reveal] { opacity: 1; transform: none; } }

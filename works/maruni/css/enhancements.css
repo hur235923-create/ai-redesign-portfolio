@@ -1,0 +1,70 @@
+
+/* ============================================================
+   개선(리디자인) — MP1~MP4
+   ============================================================ */
+
+/* 폼 상태 (뉴스레터 · 소장 문의) */
+.foot__news-msg, .own__status {
+  font-family: var(--sans); font-size: 0.88rem; min-height: 1.3em; margin: 0.6rem 0 0;
+  letter-spacing: 0.01em;
+}
+.foot__news-msg[data-state="error"], .own__status[data-state="error"] { color: #9a3b2f; }
+.foot__news-msg[data-state="ok"], .own__status[data-state="ok"] { color: var(--walnut); }
+
+/* M4 — material 줌: hover 시 나뭇결이 천천히 다가옴.
+   GSAP 3.12가 리빌 후 인라인 scale:none을 남기므로 !important로 이김(scale은 GSAP transform과 독립). */
+.piece__media { overflow: hidden; }
+.piece__media img { transition: scale 0.9s var(--ease); will-change: scale; }
+@media (hover: hover) {
+  .piece__media:hover img,
+  .piece__media:focus-within img { scale: 1.05 !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .piece__media img { transition: none; }
+  .piece__media:hover img { scale: 1 !important; }
+}
+
+/* 컬렉션 가구 상세 진입 링크 */
+.piece__more {
+  display: inline-block; margin-top: 1rem; font-family: var(--sans);
+  font-size: 0.82rem; letter-spacing: 0.08em; color: var(--walnut);
+  border-bottom: 1px solid var(--walnut); padding-bottom: 3px; transition: opacity 0.3s;
+}
+.piece__more:hover { opacity: 0.6; }
+
+/* MP3 — 데스크톱 nav 현재 섹션 활성 표시 */
+.nav__menu a[aria-current="location"] { color: var(--espresso); }
+.nav__menu a[aria-current="location"]::after { transform: scaleX(1); }
+
+/* MP4 — SNS 죽은 링크 처리 + 뉴스레터 피드백 */
+.foot__sns a[aria-disabled="true"] { cursor: not-allowed; opacity: 0.55; }
+.foot__news-msg { margin-top: 0.9rem; font-family: var(--sans); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--walnut); }
+
+/* MP1 — 햄버거 (모바일 전용) */
+.nav__burger { display: none; width: 42px; height: 42px; margin-left: 0.4rem; background: none; border: 0; padding: 0; position: relative; color: var(--espresso); cursor: pointer; }
+.nav__burger span { position: absolute; left: 10px; right: 10px; height: 1.5px; background: currentColor; transition: transform 0.3s var(--ease); }
+.nav__burger span:nth-child(1) { top: 16px; }
+.nav__burger span:nth-child(2) { bottom: 16px; }
+.nav__burger.is-open span:nth-child(1) { top: 20px; transform: rotate(45deg); }
+.nav__burger.is-open span:nth-child(2) { bottom: 20px; transform: rotate(-45deg); }
+
+/* MP1 — 모바일 드로어(웜 뮤지엄) */
+.mnav { position: fixed; inset: 0; z-index: 350; visibility: hidden; }
+.mnav.is-open { visibility: visible; }
+.mnav__panel { position: absolute; inset: 0; background: var(--ivory); padding: clamp(4.5rem, 15vh, 6.5rem) var(--pad) 2.5rem; display: flex; flex-direction: column; opacity: 0; transform: translateY(-6%); transition: opacity 0.4s var(--ease), transform 0.45s var(--ease); }
+.mnav.is-open .mnav__panel { opacity: 1; transform: none; }
+.mnav__close { align-self: flex-end; background: none; border: 0; color: var(--walnut); font-family: var(--sans); font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer; padding: 0.6rem 0.2rem; }
+.mnav__list { display: flex; flex-direction: column; margin-top: clamp(1.5rem, 5vh, 3rem); }
+.mnav__list a { display: flex; flex-direction: column; gap: 0.3rem; padding: 1.3rem 0; border-top: 1px solid var(--line); }
+.mnav__list a:last-child { border-bottom: 1px solid var(--line); }
+.mnav__list b { font-family: var(--display); font-weight: 500; font-size: clamp(2rem, 9vw, 2.6rem); letter-spacing: -0.01em; line-height: 1; }
+.mnav__list span { font-family: var(--sans); font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--stone); }
+
+@media (max-width: 920px) {
+  .nav__burger { display: block; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mnav__panel { transition: none; }
+  .nav__burger span { transition: none; }
+}

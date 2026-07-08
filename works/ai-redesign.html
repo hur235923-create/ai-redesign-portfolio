@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI × Redesign — 기존 리디자인을 AI와 함께 발전시키다 · 허강범</title>
+  <meta name="description" content="4개 브랜드 리디자인을 Claude Code와 협업해 UX·인터랙션·코드 품질까지 한 단계 더 끌어올린 프로젝트. 각 브랜드의 라이브와 AI 비교 케이스 스터디를 한눈에." />
+  <link rel="icon" href="data:," />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="ai-redesign.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
+  <script src="ai-redesign.js" defer></script>
+</head>
+<body class="ax">
+  <a class="skip" href="#ax-main">본문으로 건너뛰기</a>
+
+  <header class="ax-bar">
+    <a class="ax-bar__back" href="../index.html">← 포트폴리오</a>
+    <span class="ax-bar__brand">AI × REDESIGN</span>
+    <a class="ax-bar__mail" href="mailto:hur235923@gmail.com">Contact</a>
+  </header>
+
+  <main id="ax-main">
+    <!-- HERO -->
+    <section class="ax-hero">
+      <p class="ax-hero__eyebrow" data-reveal><span class="mono">Human × AI — 2026</span></p>
+      <h1 class="ax-hero__title" data-reveal>기존 리디자인을,<br /><em>AI와 함께</em> 한 단계 더.</h1>
+      <p class="ax-hero__sub" data-reveal>제가 직접 진행한 4개 브랜드 리디자인을, <b>Claude Code와 협업</b>해
+        UX·인터랙션·코드 품질까지 다시 설계했습니다. AI가 대신 만든 것이 아니라,
+        문제 정의와 방향은 사람이 정하고 대안과 구현은 AI와 함께 — 그 과정을 결과물과 의사결정으로 남겼습니다.</p>
+      <p class="ax-hero__scroll" aria-hidden="true">SCROLL</p>
+    </section>
+
+    <!-- 과정 -->
+    <section class="ax-flow">
+      <ol class="ax-steps">
+        <li data-reveal><span class="mono">01</span><h3>원본 / Figma</h3><p>브랜드 클론 또는 Figma 원본에서 UX 문제를 실측·정의.</p></li>
+        <li data-reveal><span class="mono">02</span><h3>v1 리디자인</h3><p>내가 직접 만든 1차 프리미엄 리디자인 — 브랜드 톤을 세움.</p></li>
+        <li data-reveal><span class="mono">03</span><h3>AI 협업 v2</h3><p>여정 완결·시그니처 연출·코드 품질을 AI와 함께 한 단계 더.</p></li>
+      </ol>
+    </section>
+
+    <!-- 4개 브랜드 -->
+    <section class="ax-grid" aria-label="브랜드 리디자인 4종">
+      <article class="ax-card ax-card--h" data-reveal>
+        <a class="ax-card__media" href="hasselblad/casestudy-ai.html" aria-label="Hasselblad AI 케이스 스터디 열기">
+          <img src="hasselblad/img/case/cs_v2_hero.png" width="1440" height="900" loading="lazy" alt="Hasselblad v2 히어로" />
+        </a>
+        <div class="ax-card__body">
+          <span class="ax-card__no mono">01</span>
+          <h2>Hasselblad</h2>
+          <p class="ax-card__tag">Heritage Camera · Dark Luxury</p>
+          <p class="ax-card__desc">하이브리드 — 서사 여정(제품 상세·Your Frame) + '빛' WebGL 시그니처.</p>
+          <div class="ax-card__links">
+            <a class="ax-btn ax-btn--primary" href="hasselblad/casestudy-ai.html">AI 케이스 스터디 →</a>
+            <a class="ax-btn" href="hasselblad/index.html">라이브 v2 ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="ax-card ax-card--y" data-reveal>
+        <a class="ax-card__media" href="Yamaha/casestudy-ai.html" aria-label="Yamaha AI 케이스 스터디 열기">
+          <img src="Yamaha/img/case/ycs_v2_hero.png" width="1440" height="900" loading="lazy" alt="Yamaha v2 히어로" />
+        </a>
+        <div class="ax-card__body">
+          <span class="ax-card__no mono">02</span>
+          <h2>Yamaha</h2>
+          <p class="ax-card__tag">Sound Brand · 3D Interactive</p>
+          <p class="ax-card__desc">3D 사운드 링 맥동 + 악기 상세·Make a Wave 여정.</p>
+          <div class="ax-card__links">
+            <a class="ax-btn ax-btn--primary" href="Yamaha/casestudy-ai.html">AI 케이스 스터디 →</a>
+            <a class="ax-btn" href="Yamaha/index.html">라이브 v2 ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="ax-card ax-card--m" data-reveal>
+        <a class="ax-card__media" href="maruni/casestudy-ai.html" aria-label="Maruni AI 케이스 스터디 열기">
+          <img src="maruni/img/case/mcs_v2_hero.png" width="1440" height="900" loading="lazy" alt="Maruni v2 히어로" />
+        </a>
+        <div class="ax-card__body">
+          <span class="ax-card__no mono">03</span>
+          <h2>Maruni</h2>
+          <p class="ax-card__tag">Wood Furniture · Quiet Luxury</p>
+          <p class="ax-card__desc">절제된 material 줌 + 가구 상세·Own a Maruni 여정.</p>
+          <div class="ax-card__links">
+            <a class="ax-btn ax-btn--primary" href="maruni/casestudy-ai.html">AI 케이스 스터디 →</a>
+            <a class="ax-btn" href="maruni/index.html">라이브 v2 ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="ax-card ax-card--j" data-reveal>
+        <a class="ax-card__media" href="jw중외제약/casestudy-ai.html" aria-label="JW중외제약 AI 케이스 스터디 열기">
+          <img src="jw중외제약/img/case/jcs_v2_hero.png" width="1440" height="900" loading="lazy" alt="JW중외제약 v2 히어로" />
+        </a>
+        <div class="ax-card__body">
+          <span class="ax-card__no mono">04</span>
+          <h2>JW중외제약</h2>
+          <p class="ax-card__tag">Pharma · 고요의 심해</p>
+          <p class="ax-card__desc">다중 사용자군 문의 경로 + 데이터 파티클 흐름 + 제품 상세.</p>
+          <div class="ax-card__links">
+            <a class="ax-btn ax-btn--primary" href="jw중외제약/casestudy-ai.html">AI 케이스 스터디 →</a>
+            <a class="ax-btn" href="jw중외제약/index.html">라이브 v2 ↗</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- 공통 접근 -->
+    <section class="ax-common">
+      <h2 class="ax-common__title" data-reveal>4개를 관통한 하나의 방법</h2>
+      <div class="ax-common__grid">
+        <div data-reveal><h3>여정 완결</h3><p>대표 1종 <b>제품/가구 상세 딥다이브</b> + <b>View Transitions</b>(프레임워크 0) + 정직한 <b>종착 섹션</b>. 막다른 골목을 실제 여정으로.</p></div>
+        <div data-reveal><h3>브랜드별 시그니처</h3><p>WebGL 빛 · 사운드 링 맥동 · material 줌 · 데이터 파티클 — 각 브랜드 결에 맞춰 <b>절제</b>해 얹었습니다.</p></div>
+        <div data-reveal><h3>코드 품질</h3><p>프리로더 세션화·리사이즈 리팩터·죽은 CTA 정리·폼 검증·카운트업 SR·<b>reduced-motion 전 경로</b>.</p></div>
+        <div data-reveal><h3>정직한 기록</h3><p>Before↔After 비교와 <b>AI 의사결정 로그(D1~)</b>로, 결과물뿐 아니라 '어떻게 발전했는가'까지 남겼습니다.</p></div>
+      </div>
+    </section>
+
+    <section class="ax-close">
+      <p class="ax-close__quote" data-reveal>“AI가 대신 만든 것이 아니라,<br />내가 주도하고 AI와 협업해 발전시켰다.”</p>
+      <a class="ax-btn ax-btn--primary ax-btn--lg" href="../index.html" data-reveal>← 포트폴리오로 돌아가기</a>
+    </section>
+  </main>
+
+  <footer class="ax-foot"><span class="mono">© 2026 — 허강범 / Heo Gangbeom · Built in code, end to end.</span></footer>
+</body>
+</html>

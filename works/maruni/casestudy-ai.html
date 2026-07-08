@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maruni 리디자인 — AI 협업 케이스 스터디 · 허강범</title>
+  <meta name="description" content="기존 Maruni 리디자인을 Claude Code와 협업해 여정·인터랙션·코드 품질까지 한 단계 더 끌어올린 과정. 원본 → v1 → AI 심화 v2 비교." />
+  <link rel="icon" href="data:," />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Hanken+Grotesk:wght@400;500;600&family=Noto+Serif+KR:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/casestudy-ai.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
+  <script src="js/casestudy-ai.js" defer></script>
+</head>
+<body class="cs">
+  <a class="skip" href="#cs-main">본문으로 건너뛰기</a>
+
+  <header class="cs-bar">
+    <a class="cs-bar__back" href="../../index.html">← 포트폴리오</a>
+    <span class="cs-bar__brand">MARUNI · AI CASE STUDY</span>
+    <a class="cs-bar__live" href="index.html">라이브 v2 →</a>
+  </header>
+
+  <main id="cs-main">
+    <section class="cs-hero">
+      <p class="cs-hero__eyebrow" data-reveal>UX Case Study — Human × AI</p>
+      <h1 class="cs-hero__title" data-reveal>Minimal in form,<br /><em>deep in soul.</em></h1>
+      <p class="cs-hero__sub" data-reveal>기존 Maruni 리디자인을 <b>Claude Code와 협업</b>해 여정·인터랙션·코드 품질까지
+        한 단계 더 끌어올린 과정. AI가 대신 만든 것이 아니라, 사람이 주도하고 AI와 함께 발전시킨 기록.</p>
+      <dl class="cs-hero__meta" data-reveal>
+        <div><dt>Role</dt><dd>기획 · 디자인 · 프론트엔드</dd></div>
+        <div><dt>With</dt><dd>Claude Code (AI 페어)</dd></div>
+        <div><dt>Stack</dt><dd>GSAP Flip · SplitType · View Transitions · Lenis</dd></div>
+        <div><dt>Year</dt><dd>2026</dd></div>
+      </dl>
+      <p class="cs-hero__scroll" aria-hidden="true">SCROLL</p>
+    </section>
+
+    <section class="cs-block">
+      <div class="cs-block__head" data-reveal><span class="cs-num">00</span><h2>출발점 — 원본의 문제</h2></div>
+      <div class="cs-split">
+        <figure class="cs-shot" data-reveal>
+          <img src="img/case/mcs_clone_hero.png" width="1440" height="900" loading="lazy" alt="원본 클론 Maruni 히어로" />
+          <figcaption>원본 클론 (Swiper · AOS · jQuery)</figcaption>
+        </figure>
+        <div class="cs-copy" data-reveal>
+          <p>원본은 <em>컬러 활용이 부족</em>하고 패턴이 단조로웠으며, 제품 외에 브랜드 스토리를 전하는
+            콘텐츠가 부족했습니다. 디자이너 정보에는 사실 오류(두 사람을 한 이름으로)도 있었습니다.</p>
+          <ul class="cs-list">
+            <li>브랜드 철학·만듦새 서사의 부재</li>
+            <li>전환 경로(다음 행동)의 부재 — 죽은 CTA</li>
+            <li>단조로운 패턴, 소장 가치를 전하는 깊이 부족</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-block">
+      <div class="cs-block__head" data-reveal><span class="cs-num">01</span><h2>1차 리디자인 (v1) — 그리고 남은 것</h2></div>
+      <div class="cs-split cs-split--rev">
+        <figure class="cs-shot" data-reveal>
+          <img src="img/case/mcs_v1_collection.png" width="1440" height="900" loading="lazy" alt="v1 Collection — 상세로 가는 길 없음" />
+          <figcaption>v1 Collection — 확대는 되나 '더 깊이'가 없음</figcaption>
+        </figure>
+        <div class="cs-copy" data-reveal>
+          <p>1차 리디자인은 <b>뮤지엄 에디토리얼</b> 톤과 GSAP Flip 라이트박스로 quiet luxury를
+            크게 끌어올렸습니다 — 철학·컬렉션·만듦새·디자이너의 한 흐름.</p>
+          <p>그러나 <em>여정은 막다른 골목</em>이었습니다. 가구를 '더 깊이' 볼 수 없었고, 종착지가 없었으며,
+            뉴스레터는 이메일 형식을 검증하지 않았습니다.</p>
+          <p class="cs-note">→ 여기서부터가 <b>AI 협업으로 발전시킬 지점</b>이었습니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-block cs-block--decisions">
+      <div class="cs-block__head" data-reveal>
+        <span class="cs-num">02</span><h2>AI 협업 — 결정의 여정</h2>
+        <p class="cs-block__lead">각 개선은 <b>문제 발견 → AI 제안 → 검토·선택 → 실측 검증</b>의 루프로.
+          AI는 대안을 제시했고, 방향의 선택과 판단은 사람이 했습니다.</p>
+      </div>
+
+      <div class="cs-theme" data-reveal>
+        <h3 class="cs-theme__title">여정 <span>Journey</span></h3>
+        <div class="cs-cards">
+          <article class="cs-card" data-reveal>
+            <span class="cs-card__id">M-D3</span><h4>가구 상세 딥다이브</h4>
+            <p>컬렉션이 Flip 라이트박스(확대)로만 끝나던 막다른 골목. → 대표 1종 Roundish 상세를 신설하고,
+              가구 이미지 → 상세 히어로를 <b>View Transitions</b>로 모핑. 이미지 클릭은 기존 Flip 유지.</p>
+          </article>
+          <article class="cs-card" data-reveal>
+            <span class="cs-card__id">M-D4</span><h4>Own a Maruni 종착</h4>
+            <p>순환으로 끝나던 여정을 '소장 문의'로 닫음. 클라이언트 검증 + 성공 상태.
+              nav·드로어·상세 CTA에서 연결. "데모 — 실제 전송되지 않음" 정직하게 명시.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="cs-theme" data-reveal>
+        <h3 class="cs-theme__title">연출 <span>Craft</span></h3>
+        <div class="cs-cards">
+          <article class="cs-card" data-reveal>
+            <span class="cs-card__id">M-D5</span><h4>material 줌 (절제)</h4>
+            <p>quiet luxury에 맞춰 과하지 않게 — 컬렉션 가구에 hover 시 나뭇결이 천천히 다가오는 정적 줌.
+              GSAP가 남긴 인라인 transform과 충돌하지 않도록 <b>독립 CSS <code>scale</code></b>로 구현.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="cs-theme" data-reveal>
+        <h3 class="cs-theme__title">코드 품질 <span>Engineering</span></h3>
+        <div class="cs-cards">
+          <article class="cs-card" data-reveal>
+            <span class="cs-card__id">M-D2</span><h4>뉴스레터 실검증</h4>
+            <p>기존 핸들러가 제출 시 입력을 비워 새 핸들러와 충돌하던 문제를 발견. 중복을 정리하고
+              기존 핸들러를 <b>이메일 형식 검증 + aria-live 피드백</b>으로 업그레이드.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-block">
+      <div class="cs-block__head" data-reveal><span class="cs-num">03</span><h2>Before ↔ After</h2>
+        <p class="cs-block__lead">핸들을 드래그해 원본과 AI 리디자인을 비교해 보세요.</p></div>
+
+      <div class="ba" id="ba" data-reveal>
+        <img class="ba__img" src="img/case/mcs_v2_hero.png" width="1440" height="900" alt="AI 리디자인 v2 히어로" />
+        <div class="ba__clip" id="baClip"><img class="ba__img" src="img/case/mcs_clone_hero.png" width="1440" height="900" alt="원본 클론 히어로" /></div>
+        <div class="ba__handle" id="baHandle" role="slider" tabindex="0" aria-label="Before/After 비교 슬라이더" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+          <span class="ba__line"></span><span class="ba__grip">⇔</span>
+        </div>
+        <span class="ba__tag ba__tag--before">원본 클론</span>
+        <span class="ba__tag ba__tag--after">AI 리디자인 v2</span>
+      </div>
+
+      <div class="cs-newpair">
+        <figure class="cs-shot" data-reveal>
+          <span class="cs-shot__badge">NEW</span>
+          <img src="img/case/mcs_v2_piece.png" width="1440" height="900" loading="lazy" alt="v2 Roundish 상세 페이지" />
+          <figcaption>가구 상세 딥다이브 — v1엔 없던 '탐험'</figcaption>
+        </figure>
+        <figure class="cs-shot" data-reveal>
+          <span class="cs-shot__badge">NEW</span>
+          <img src="img/case/mcs_v2_own.png" width="1440" height="900" loading="lazy" alt="v2 Own a Maruni 소장 문의" />
+          <figcaption>Own a Maruni — 여정을 닫는 정직한 종착</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="cs-block cs-block--results">
+      <div class="cs-block__head" data-reveal><span class="cs-num">04</span><h2>결과 (실측)</h2></div>
+      <div class="cs-metrics">
+        <div class="cs-metric" data-reveal><strong>0 → 1</strong><span>가구 상세 딥다이브 (Roundish)</span></div>
+        <div class="cs-metric" data-reveal><strong>없음 → 1</strong><span>여정 종착 (Own a Maruni)</span></div>
+        <div class="cs-metric" data-reveal><strong>무반응 → 검증</strong><span>뉴스레터 이메일 형식·피드백</span></div>
+        <div class="cs-metric" data-reveal><strong>0</strong><span>콘솔 오류 (1440 / 390)</span></div>
+      </div>
+      <ul class="cs-tech" data-reveal>
+        <li>GSAP · ScrollTrigger · Flip</li><li>SplitType</li><li>View Transitions API</li>
+        <li>Lenis 스무스 스크롤</li><li>CSS scale (독립 transform)</li><li>reduced-motion 폴백</li>
+      </ul>
+    </section>
+
+    <section class="cs-block cs-block--reflect">
+      <div class="cs-reflect" data-reveal>
+        <p class="cs-reflect__quote">“AI가 대신 만든 것이 아니라, 내가 주도하고 AI와 협업해
+          더 높은 완성도로 발전시켰다.”</p>
+        <p class="cs-reflect__body">문제 정의와 방향의 판단은 사람이, 대안의 폭과 구현의 속도는 AI가.
+          그 협업의 의사결정을 <b>결정 로그(M-D1–M-D5)</b>로 남겨, 결과물뿐 아니라 '어떻게 발전했는가'까지 보이도록 했습니다.</p>
+        <div class="cs-cta">
+          <a class="cs-cta__btn cs-cta__btn--primary" href="index.html">라이브 v2 보기 →</a>
+          <a class="cs-cta__btn" href="piece-roundish.html">Roundish 상세 보기</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="cs-foot"><span>© 2011– MARUNI WOOD INDUSTRY INC. · Redesign & Case Study — 허강범 / Heo Gangbeom</span></footer>
+</body>
+</html>

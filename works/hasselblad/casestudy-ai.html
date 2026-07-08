@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hasselblad 리디자인 — AI 협업 케이스 스터디 · 허강범</title>
+  <meta name="description" content="기존 리디자인을 Claude Code와 협업해 UX·인터랙션·코드 품질까지 한 단계 더 끌어올린 과정. 원본 → v1 → AI 심화 v2의 Before/After 비교." />
+  <link rel="icon" href="data:," />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Noto+Sans+KR:wght@300;400;500;700&family=Italianno&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/casestudy-ai.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+</head>
+<body class="cs">
+  <a class="skip-link" href="#cs-main">본문으로 건너뛰기</a>
+
+  <header class="cs-bar">
+    <a class="cs-bar__back" href="../../index.html">← 포트폴리오</a>
+    <span class="cs-bar__brand">HASSELBLAD · AI CASE STUDY</span>
+    <a class="cs-bar__live" href="index.html">라이브 v2 →</a>
+  </header>
+
+  <main id="cs-main">
+    <!-- ===== HERO ===== -->
+    <section class="cs-hero">
+      <p class="cs-hero__eyebrow" data-reveal>UX Case Study — Human × AI</p>
+      <h1 class="cs-hero__title" data-reveal>From Legacy<br /><em>to Your Frame</em></h1>
+      <p class="cs-hero__sub" data-reveal>기존 리디자인을 <b>Claude Code와 협업</b>해 UX·인터랙션·코드 품질까지
+        한 단계 더 끌어올린 과정. AI가 대신 만든 것이 아니라, 사람이 주도하고 AI와 함께 발전시킨 기록.</p>
+      <dl class="cs-hero__meta" data-reveal>
+        <div><dt>Role</dt><dd>기획 · 디자인 · 프론트엔드</dd></div>
+        <div><dt>With</dt><dd>Claude Code (AI 페어)</dd></div>
+        <div><dt>Stack</dt><dd>GSAP · WebGL · View Transitions · Lenis</dd></div>
+        <div><dt>Year</dt><dd>2026</dd></div>
+      </dl>
+      <p class="cs-hero__scroll" aria-hidden="true">SCROLL</p>
+    </section>
+
+    <!-- ===== 00 출발점 ===== -->
+    <section class="cs-block">
+      <div class="cs-block__head" data-reveal>
+        <span class="cs-num">00</span>
+        <h2>출발점 — 원본의 문제</h2>
+      </div>
+      <div class="cs-split">
+        <figure class="cs-shot" data-reveal>
+          <img src="img/case/cs_clone_hero.png" width="1440" height="900" loading="lazy" alt="원본 클론 사이트 히어로" />
+          <figcaption>원본 클론 (Swiper · AOS · jQuery)</figcaption>
+        </figure>
+        <div class="cs-copy" data-reveal>
+          <p>원본은 시각 완성도는 있으나 <em>헤리티지가 분절</em>되고, 모든 링크·READ MORE가
+            <em>죽어 있었으며</em>(<code>href="#"</code>), 슬라이더는 동일 콘텐츠를 반복했습니다.
+            브랜드의 격은 '읽어야 아는 정보'로 묻혔습니다.</p>
+          <ul class="cs-list">
+            <li>헤리티지·제품·영감 콘텐츠의 연결성 부족</li>
+            <li>전환 경로(다음 행동)의 부재 — 죽은 CTA</li>
+            <li>정적 인터랙션 — '정밀·빛'이라는 브랜드 속성 미체감</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 01 v1 ===== -->
+    <section class="cs-block">
+      <div class="cs-block__head" data-reveal>
+        <span class="cs-num">01</span>
+        <h2>1차 리디자인 (v1) — 그리고 남은 것</h2>
+      </div>
+      <div class="cs-split cs-split--rev">
+        <figure class="cs-shot" data-reveal>
+          <img src="img/case/cs_v1_showcase.png" width="1440" height="900" loading="lazy" alt="v1 제품 쇼케이스 — 죽은 READ MORE" />
+          <figcaption>v1 제품 쇼케이스 — READ MORE가 여전히 <code>#</code></figcaption>
+        </figure>
+        <div class="cs-copy" data-reveal>
+          <p>1차 리디자인은 다크 럭셔리 '브랜드 필름'으로 완성도를 크게 끌어올렸습니다 —
+            프리로더, WebGL 히어로, 가로 핀 제품 쇼케이스, 라이트박스 갤러리.</p>
+          <p>그러나 <em>여정은 여전히 막다른 골목</em>이었습니다. 제품을 '더 깊이' 볼 수 없었고,
+            READ MORE 6개가 죽어 있었으며, 프리로더는 매번 재생되고 리사이즈는 페이지를 통째로 리로드했습니다.</p>
+          <p class="cs-note">→ 여기서부터가 <b>AI 협업으로 발전시킬 지점</b>이었습니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 02 AI 협업 결정 ===== -->
+    <section class="cs-block cs-block--decisions">
+      <div class="cs-block__head" data-reveal>
+        <span class="cs-num">02</span>
+        <h2>AI 협업 — 결정의 여정</h2>
+        <p class="cs-block__lead">각 개선은 <b>문제 발견 → AI 제안 → 검토·선택 → 실측 검증</b>의 루프로 이뤄졌습니다.
+          AI는 대안을 제시했고, 방향의 선택과 판단은 사람이 했습니다.</p>
+      </div>
+
+      <div class="cs-theme" data-reveal>
+        <h3 class="cs-theme__title">여정 <span>Journey</span></h3>
+        <div class="cs-cards">
+          <article class="cs-card" data-reveal>
+            <span class="cs-card__id">D5</span>
+            <h4>제품 상세 딥다이브</h4>
+            <p>쇼케이스가 '읽기'로 끝나던 막다른 골목. → X System 상세 페이지를 신설해
+              '탐험'으로. 상세 없는 V/H/렌즈의 죽은 CTA는 정직하게 제거.</p>
+          </article>
+          <article class="cs-card" data-reveal>
+            <span class="cs-card__id">D6</span>
+            <h4>View Transitions</h4>
+            <p>카드→상세 공유요소 모핑을 <b>프레임워크 없이</b>. JS로 이름을 붙이는 대신
+              CSS 영구 이름을 선택해 앞·뒤 양방향 전환이 모두 성립.</p>
+          </article>
+          <article class="cs-card" data-reveal>
+            <span class="cs-card__id">D7</span>
+            <h4>Your Frame 종착</h4>
+            <p>순환으로 끝나던 여정을 '문의'로 닫음. 클라이언트 검증 + 성공 상태.
+              가상 브랜드이므로 "데모 — 실제 전송되지 않음"을 정직하게 명시.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="cs-theme" data-reveal>
+        <h3 class="cs-theme__title">연출 <span>Craft</span></h3>
+        <div class="cs-cards">
+          <article class="cs-card" data-reveal>
+            <span class="cs-card__id">D8</span>
+            <h4>히어로 '빛' 강화</h4>
+            <p>히어로가 단순 glow가 아니라 정교한 OGL 이미지 셰이더임을 확인. 교체(다운그레이드)
+              대신 <b>포인터·스크롤을 따라 훑는 라이트 레이크</b>를 얹어 'Light defines legacy'를 물리적으로.</p>
+          </article>
+          <article class="cs-card" data-reveal>
+            <span class="cs-card__id">D9</span>
+            <h4>섹션 라이트 스윕</h4>
+            <p><code>@property --sweep</code> + 스크롤 스크럽으로 헤딩을 빛줄기가 통과.
+              과용하지 않고 3곳에만 — 절제로 '빛의 여정'을 관통.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="cs-theme" data-reveal>
+        <h3 class="cs-theme__title">코드 품질 <span>Engineering</span></h3>
+        <div class="cs-cards">
+          <article class="cs-card" data-reveal>
+            <span class="cs-card__id">D2</span>
+            <h4>프리로더 세션 1회화</h4>
+            <p>매 로드 재생 → <code>sessionStorage</code> 가드로 세션당 1회.
+              첫인상 연출을 지키되 재방문 마찰 제거.</p>
+          </article>
+          <article class="cs-card" data-reveal>
+            <span class="cs-card__id">D3</span>
+            <h4>리사이즈 리로드 제거</h4>
+            <p>경계 리사이즈의 전체 리로드 → 트윈 kill/rebuild + <code>ScrollTrigger.refresh</code>.
+              위치·연속성 보존.</p>
+          </article>
+          <article class="cs-card" data-reveal>
+            <span class="cs-card__id">D4</span>
+            <h4>정직한 신호</h4>
+            <p>죽은 CTA 무력화가 아니라 제거/연결. 커서 라벨 'DRAG' → 'SCROLL'로
+              실제 조작과 일치.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 03 Before / After ===== -->
+    <section class="cs-block">
+      <div class="cs-block__head" data-reveal>
+        <span class="cs-num">03</span>
+        <h2>Before ↔ After</h2>
+        <p class="cs-block__lead">핸들을 드래그해 원본과 AI 리디자인을 비교해 보세요.</p>
+      </div>
+
+      <div class="ba" id="ba" data-reveal>
+        <img class="ba__img" src="img/case/cs_v2_hero.png" width="1440" height="900" alt="AI 리디자인 v2 히어로" />
+        <div class="ba__clip" id="baClip">
+          <img class="ba__img" src="img/case/cs_clone_hero.png" width="1440" height="900" alt="원본 클론 히어로" />
+        </div>
+        <div class="ba__handle" id="baHandle" role="slider" tabindex="0"
+             aria-label="Before/After 비교 슬라이더" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+          <span class="ba__line"></span><span class="ba__grip">⇔</span>
+        </div>
+        <span class="ba__tag ba__tag--before">원본 클론</span>
+        <span class="ba__tag ba__tag--after">AI 리디자인 v2</span>
+      </div>
+
+      <div class="cs-newpair">
+        <figure class="cs-shot" data-reveal>
+          <span class="cs-shot__badge">NEW</span>
+          <img src="img/case/cs_v2_product.png" width="1440" height="900" loading="lazy" alt="v2 제품 상세 페이지 (X System)" />
+          <figcaption>제품 상세 딥다이브 — v1엔 없던 '탐험'</figcaption>
+        </figure>
+        <figure class="cs-shot" data-reveal>
+          <span class="cs-shot__badge">NEW</span>
+          <img src="img/case/cs_v2_yourframe.png" width="1440" height="900" loading="lazy" alt="v2 Your Frame 문의 종착 섹션" />
+          <figcaption>Your Frame — 여정을 닫는 정직한 종착</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===== 04 결과 ===== -->
+    <section class="cs-block cs-block--results">
+      <div class="cs-block__head" data-reveal>
+        <span class="cs-num">04</span>
+        <h2>결과 (실측)</h2>
+      </div>
+      <div class="cs-metrics">
+        <div class="cs-metric" data-reveal><strong data-count="6">6 → 0</strong><span>죽은 CTA (<code>href="#"</code>)</span></div>
+        <div class="cs-metric" data-reveal><strong>0 → 3</strong><span>여정 단계 (쇼케이스→상세→문의)</span></div>
+        <div class="cs-metric" data-reveal><strong>0</strong><span>콘솔 오류 (1440 / 390)</span></div>
+        <div class="cs-metric" data-reveal><strong>매회 → 1</strong><span>프리로더 재생 (세션당)</span></div>
+      </div>
+      <ul class="cs-tech" data-reveal>
+        <li>GSAP · ScrollTrigger</li><li>OGL / WebGL 셰이더</li><li>View Transitions API</li>
+        <li>Lenis 스무스 스크롤</li><li>@property CSS</li><li>reduced-motion 폴백</li>
+      </ul>
+    </section>
+
+    <!-- ===== 05 회고 ===== -->
+    <section class="cs-block cs-block--reflect">
+      <div class="cs-reflect" data-reveal>
+        <p class="cs-reflect__quote">“AI가 대신 만든 것이 아니라, 내가 주도하고 AI와 협업해
+          더 높은 완성도로 발전시켰다.”</p>
+        <p class="cs-reflect__body">문제 정의와 방향의 판단은 사람이, 대안의 폭과 구현의 속도는 AI가.
+          그 협업의 의사결정을 <b>결정 로그(D1–D10)</b>로 남겨,
+          결과물뿐 아니라 '어떻게 발전했는가'까지 보이도록 했습니다.</p>
+        <div class="cs-cta">
+          <a class="cs-cta__btn cs-cta__btn--primary" href="index.html">라이브 v2 보기 →</a>
+          <a class="cs-cta__btn" href="product-x.html">제품 상세 보기</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="cs-foot">
+    <span>© Hasselblad 2026 · Redesign & Case Study — 허강범 / Heo Gangbeom</span>
+  </footer>
+
+  <script src="js/casestudy-ai.js" defer></script>
+</body>
+</html>
