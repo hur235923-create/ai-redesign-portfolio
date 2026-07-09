@@ -19,4 +19,12 @@ if (!ax_reduce) {
       scrollTrigger: { trigger: el, start: "top 90%" },
     });
   });
+
+  /* 이미지 로드 페이드인 (부드러운 마감) */
+  document.querySelectorAll(".ax-card__media img").forEach((img) => {
+    img.classList.add("img-fade");
+    const show = () => img.classList.add("is-loaded");
+    if (img.complete && img.naturalWidth) show();
+    else { img.addEventListener("load", show, { once: true }); img.addEventListener("error", show, { once: true }); }
+  });
 }

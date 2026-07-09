@@ -117,6 +117,10 @@
 /* ---------- reveal ---------- */
 [data-reveal] { opacity: 0; transform: translateY(30px); }
 
+/* 이미지 로드 페이드인 (부드러운 마감) */
+.img-fade { opacity: 0; transition: opacity 0.7s var(--ease); }
+.img-fade.is-loaded { opacity: 1; }
+
 /* ---------- 반응형 ---------- */
 @media (max-width: 900px) {
   .cs-split, .cs-newpair { grid-template-columns: 1fr; }

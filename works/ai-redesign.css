@@ -107,6 +107,10 @@ a { color: inherit; text-decoration: none; }
 /* ---------- reveal ---------- */
 [data-reveal] { opacity: 0; transform: translateY(28px); }
 
+/* 이미지 로드 페이드인 (부드러운 마감) */
+.img-fade { opacity: 0; transition: opacity 0.7s var(--ease); }
+.img-fade.is-loaded { opacity: 1; }
+
 /* ---------- 반응형 ---------- */
 @media (max-width: 860px) {
   .ax-steps, .ax-grid, .ax-common__grid { grid-template-columns: 1fr; }

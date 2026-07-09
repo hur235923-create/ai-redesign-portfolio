@@ -65,3 +65,13 @@ if (!cs_reduce) {
   sizeImg();
   set(50);
 })();
+
+/* ---------- 이미지 로드 페이드인 (부드러운 마감) ---------- */
+if (!cs_reduce) {
+  document.querySelectorAll(".ba__img, .cs-shot img").forEach((img) => {
+    img.classList.add("img-fade");
+    const show = () => img.classList.add("is-loaded");
+    if (img.complete && img.naturalWidth) show();
+    else { img.addEventListener("load", show, { once: true }); img.addEventListener("error", show, { once: true }); }
+  });
+}
