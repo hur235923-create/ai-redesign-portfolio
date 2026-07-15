@@ -8,13 +8,22 @@
 @media (prefers-reduced-motion: reduce) {
   @view-transition { navigation: none; }
 }
-::view-transition-old(vt-x-hero),
-::view-transition-new(vt-x-hero) {
+::view-transition-old(vt-x-hero),   ::view-transition-new(vt-x-hero),
+::view-transition-old(vt-v-hero),   ::view-transition-new(vt-v-hero),
+::view-transition-old(vt-h-hero),   ::view-transition-new(vt-h-hero),
+::view-transition-old(vt-lens-hero),::view-transition-new(vt-lens-hero) {
   animation-duration: 0.55s;
   animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 }
-/* 쇼케이스 X 카드 이미지 = 상세 히어로와 공유되는 전환 요소 (양방향) */
-.vt-x-card { view-transition-name: vt-x-hero; }
+/* 쇼케이스 카드 이미지 = 상세 히어로와 공유되는 전환 요소 (양방향) */
+.vt-x-card    { view-transition-name: vt-x-hero; }
+.vt-v-card    { view-transition-name: vt-v-hero; }
+.vt-h-card    { view-transition-name: vt-h-hero; }
+.vt-lens-card { view-transition-name: vt-lens-hero; }
+/* 각 상세 페이지 히어로 (product.css 의 vt-hero-img 대신 제품별 고유 이름) */
+.vt-v-img    { view-transition-name: vt-v-hero; }
+.vt-h-img    { view-transition-name: vt-h-hero; }
+.vt-lens-img { view-transition-name: vt-lens-hero; }
 
 /* ---------- Tokens ---------- */
 :root {

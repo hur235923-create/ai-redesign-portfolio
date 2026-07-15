@@ -41,12 +41,15 @@ html.lenis, html.lenis body { height: auto; }
 /* ---------- Cross-document View Transitions (제품 상세 진입/복귀) ---------- */
 @view-transition { navigation: auto; }
 @media (prefers-reduced-motion: reduce) { @view-transition { navigation: none; } }
-::view-transition-old(vt-winuf),
-::view-transition-new(vt-winuf) {
+::view-transition-old(vt-winuf),    ::view-transition-new(vt-winuf),
+::view-transition-old(vt-livalo),   ::view-transition-new(vt-livalo),
+::view-transition-old(vt-hemlibra), ::view-transition-new(vt-hemlibra) {
   animation-duration: 0.6s;
   animation-timing-function: var(--ease);
 }
-.vt-winuf { view-transition-name: vt-winuf; }
+.vt-winuf    { view-transition-name: vt-winuf; }
+.vt-livalo   { view-transition-name: vt-livalo; }
+.vt-hemlibra { view-transition-name: vt-hemlibra; }
 
 body {
   font-family: var(--sans); font-weight: 400; color: var(--foam);

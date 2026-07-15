@@ -21,6 +21,9 @@
 .phero__type { font-family: var(--sans); color: var(--ink-soft); letter-spacing: 0.04em; margin-bottom: 2.5rem; }
 .phero__media { max-width: 900px; margin: 0 auto; }
 .phero__media img { width: 100%; border-radius: 3px; }
+/* 세로 비율 가구 사진 히어로 — 전체가 보이도록 높이 기준으로 맞춤(크롭 없음) */
+.phero__media--tall { max-width: 620px; }
+.phero__media--tall img { width: auto; max-width: 100%; max-height: 80vh; margin-inline: auto; }
 
 /* ---------- 서사 ---------- */
 .pnarr { max-width: 820px; margin: clamp(4rem, 10vh, 8rem) auto; padding: 0 var(--pad); }

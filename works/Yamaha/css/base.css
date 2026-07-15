@@ -52,9 +52,12 @@ p { text-wrap: pretty; }
 /* ---------- Cross-document View Transitions (악기 상세 진입/복귀) ---------- */
 @view-transition { navigation: auto; }
 @media (prefers-reduced-motion: reduce) { @view-transition { navigation: none; } }
-::view-transition-old(vt-piano),
-::view-transition-new(vt-piano) {
+::view-transition-old(vt-piano),   ::view-transition-new(vt-piano),
+::view-transition-old(vt-strings), ::view-transition-new(vt-strings),
+::view-transition-old(vt-guitar),  ::view-transition-new(vt-guitar) {
   animation-duration: 0.55s;
   animation-timing-function: var(--ease);
 }
-.vt-piano { view-transition-name: vt-piano; }
+.vt-piano   { view-transition-name: vt-piano; }
+.vt-strings { view-transition-name: vt-strings; }
+.vt-guitar  { view-transition-name: vt-guitar; }

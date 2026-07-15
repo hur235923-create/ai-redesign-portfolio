@@ -35,12 +35,17 @@ html { background: var(--ivory); -webkit-text-size-adjust: 100%; }
 /* ---------- Cross-document View Transitions (가구 상세 진입/복귀) ---------- */
 @view-transition { navigation: auto; }
 @media (prefers-reduced-motion: reduce) { @view-transition { navigation: none; } }
-::view-transition-old(vt-roundish),
-::view-transition-new(vt-roundish) {
+::view-transition-old(vt-roundish),  ::view-transition-new(vt-roundish),
+::view-transition-old(vt-lightwood), ::view-transition-new(vt-lightwood),
+::view-transition-old(vt-hiro-arm),  ::view-transition-new(vt-hiro-arm),
+::view-transition-old(vt-hiro-side), ::view-transition-new(vt-hiro-side) {
   animation-duration: 0.6s;
   animation-timing-function: var(--ease);
 }
-.vt-roundish { view-transition-name: vt-roundish; }
+.vt-roundish  { view-transition-name: vt-roundish; }
+.vt-lightwood { view-transition-name: vt-lightwood; }
+.vt-hiro-arm  { view-transition-name: vt-hiro-arm; }
+.vt-hiro-side { view-transition-name: vt-hiro-side; }
 
 body {
   color: var(--espresso);

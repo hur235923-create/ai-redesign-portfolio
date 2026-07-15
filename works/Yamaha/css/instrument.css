@@ -21,6 +21,9 @@
 .ihero__title { font-size: clamp(4rem, 16vw, 13rem); font-weight: 200; margin: 0.1em 0 0.3em; }
 .ihero__media { max-width: 720px; margin: 0 auto; }
 .ihero__media img { width: 100%; }
+/* 실사 사진 히어로(피아노 제품컷 PNG가 아닌 경우) — 과도한 세로 길이 방지 */
+.ihero__media--photo { max-width: 920px; }
+.ihero__media--photo img { height: clamp(360px, 58vh, 620px); object-fit: cover; border-radius: 4px; }
 .ihero__sub { font-size: clamp(1.1rem, 2.4vw, 1.8rem); font-weight: 300; color: var(--ink-soft); margin-top: 1.5rem; }
 
 /* ---------- 서사 ---------- */
