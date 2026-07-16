@@ -63,6 +63,43 @@ if (!cs_reduce) {
   window.addEventListener("resize", sizeImg);
   sizeImg();
   set(50);
+
+  /* ---------- 첫 진입 시 자동 시연 1회 · 상호작용하면 즉시 수동 ---------- */
+  let ba_touched = false;
+  const ba_stop = () => { ba_touched = true; };
+  ba.addEventListener("pointerdown", ba_stop);
+  handle.addEventListener("keydown", ba_stop);
+
+  function ba_demo() {
+    if (ba_touched || cs_reduce) return;
+    const keys = [50, 82, 18, 50];
+    const segMs = 620;
+    let seg = 0;
+    function runSeg() {
+      if (ba_touched) { set(50); return; }
+      const from = keys[seg], to = keys[seg + 1];
+      const t0 = performance.now();
+      function frame(now) {
+        if (ba_touched) return;
+        const t = Math.min(1, (now - t0) / segMs);
+        const e = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+        set(from + (to - from) * e);
+        if (t < 1) requestAnimationFrame(frame);
+        else if (++seg < keys.length - 1) runSeg();
+      }
+      requestAnimationFrame(frame);
+    }
+    runSeg();
+  }
+
+  if ("IntersectionObserver" in window && !cs_reduce) {
+    const ba_io = new IntersectionObserver((ents) => {
+      ents.forEach((en) => {
+        if (en.isIntersecting) { ba_io.disconnect(); setTimeout(ba_demo, 400); }
+      });
+    }, { threshold: 0.5 });
+    ba_io.observe(ba);
+  }
 })();
 
 /* ---------- 이미지 로드 페이드인 (부드러운 마감) ---------- */
