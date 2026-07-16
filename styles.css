@@ -310,12 +310,6 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 
 .profile__col--contact { display: flex; flex-direction: column; justify-content: center; }
 .contact__lead { font-size: clamp(1.4rem, 3vw, 2.1rem); font-weight: 700; line-height: 1.25; margin-bottom: 2rem; }
-.contact__mail {
-  font-size: clamp(1.1rem, 2.4vw, 1.7rem); font-weight: 700; color: var(--green);
-  border-bottom: 2px solid var(--green); padding-bottom: 0.2rem; align-self: flex-start;
-  transition: opacity 0.3s var(--ease);
-}
-.contact__mail:hover { opacity: 0.6; }
 .contact__links { list-style: none; display: flex; flex-wrap: wrap; gap: 0.8rem 1.8rem; margin: 2.4rem 0; }
 .contact__links a {
   font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.08em;
