@@ -16,7 +16,7 @@
   --line:      color-mix(in oklab, var(--ink) 16%, transparent);
   --line-soft: color-mix(in oklab, var(--ink) 8%, transparent);
 
-  --mono: ui-monospace, "SF Mono", "Menlo", "Cascadia Code", monospace;
+  --mono: ui-monospace, "SF Mono", "Menlo", "Cascadia Code", "Pretendard Variable", Pretendard, monospace;
   --sans: "Pretendard Variable", Pretendard, system-ui, sans-serif;
 
   --panel-pad: clamp(1.6rem, 5vw, 6rem);
@@ -193,6 +193,8 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.2em; color: var(--slate);
 }
 .intro__hint-line { width: clamp(2rem, 6vw, 5rem); height: 1px; background: var(--slate); }
+/* 가로 스크롤(데스크톱)은 '가로로', 세로 폴백은 '아래로' 문구 노출 */
+.intro__hint-word--v { display: none; }
 
 /* AI × Redesign 허브 진입 CTA */
 .intro__cta {
@@ -342,6 +344,8 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   .intro__object { order: -1; width: 100%; height: 48vw; align-self: stretch; }
   .intro__body, .intro__sub { max-width: none; margin-top: 1rem; }
   .intro__hint { justify-self: start; }
+  .intro__hint-word--h { display: none; }
+  .intro__hint-word--v { display: inline; }
 
   /* shape-outside 해제 → 오브제 위, 텍스트 아래 세로 스택 */
   .panel--work { display: flex; flex-direction: column; }
@@ -349,6 +353,11 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 
   .panel--profile { display: flex; flex-direction: column; gap: 3rem; }
   .profile__col--contact { justify-content: flex-start; }
+
+  /* 터치 타깃 44px 확보 (모바일 오탭 방지) */
+  .hud__index-btn { min-height: 44px; padding: 0.6rem 1rem; }
+  .work__cta { min-height: 44px; align-items: center; }
+  .contact__links a { min-height: 44px; align-items: center; padding-top: 0.5rem; }
 }
 
 @media (max-width: 480px) {
@@ -368,6 +377,8 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   .work__object { float: none; width: min(70%, 360px); margin: 0 0 2rem; }
   .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
   * { scroll-behavior: auto !important; }
+  .intro__hint-word--h { display: none; }
+  .intro__hint-word--v { display: inline; }
 }
 
 /* ---------- WORK CTA 그룹 (라이브 + 케이스 스터디) ---------- */
